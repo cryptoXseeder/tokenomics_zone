@@ -1,4 +1,6 @@
+"use client"
 import { useState } from "react";
+
 export default function TokenValuationDemo() {
   const [token, setToken] = useState("SAHARA");
   const [circSupply, setCircSupply] = useState(2000000000);
@@ -30,12 +32,12 @@ plot(over2, "Overvalued 2", color=color.red)`;
 
   return (
     <div>
-      <h1>💰 Tokenomics Zone Calculator (Demo)</h1>
+      <h1>💰 Tokenomics Zone Calculator</h1>
       <input value={token} onChange={(e) => setToken(e.target.value)} placeholder="Token Symbol" />
-      <input type="number" value={circSupply} onChange={(e) => setCircSupply(Number(e.target.value))} />
-      <input type="number" value={fairCap} onChange={(e) => setFairCap(Number(e.target.value))} />
-      <input type="number" value={overCap1} onChange={(e) => setOverCap1(Number(e.target.value))} />
-      <input type="number" value={overCap2} onChange={(e) => setOverCap2(Number(e.target.value))} />
+      <input type="number" value={circSupply} onChange={(e) => setCircSupply(+e.target.value)} />
+      <input type="number" value={fairCap} onChange={(e) => setFairCap(+e.target.value)} />
+      <input type="number" value={overCap1} onChange={(e) => setOverCap1(+e.target.value)} />
+      <input type="number" value={overCap2} onChange={(e) => setOverCap2(+e.target.value)} />
       <button onClick={calculateZones}>Calculate</button>
       {result && (
         <div>
